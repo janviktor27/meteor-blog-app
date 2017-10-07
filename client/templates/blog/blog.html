@@ -1,0 +1,57 @@
+<template name="blog">
+  {{#if currentUser}}
+  <div class="row post-form">
+    <div class="col-md-6">
+      <div class="panel panel-main">
+        {{> BlogForm}}
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  <!-- main posts area -->
+  {{#each blogs}}
+  <div class="row">
+    <div class="col-md-1">
+      <img src="{{getProfilePhoto userId}}" >
+    </div>
+    <div class="col-md-11">
+      {{> postImageView}}
+      <p>
+        {{textContent}}
+      </p>
+      <!-- comments area -->
+      <hr>
+      <h3>Comments</h3>
+      {{#each comments}}
+      <div class="row">
+            {{> commentItem}}
+      </div>
+      {{/each}}
+      {{#if currentUser}}
+        {{> CommentForm}}
+      {{/if}}
+    </div>
+  </div>
+  <hr>
+  {{/each}}
+</template>
+
+<template name="commentItem">
+  <div class="col-md-1">
+    <span>Author</span>
+    {{> ProfilePhoto}}
+  </div>
+  <div class="col-md-11">
+    <p>
+      {{commentContent}}
+    </p>
+  </div>
+</template>
+
+<template name="postImageView">
+    <img src="{{postPhoto}}" class="postPhoto">
+</template>
+
+<template name="ProfilePhoto">
+  <img class="img-small" src="{{getProfilePhoto userId}}" >
+</template>

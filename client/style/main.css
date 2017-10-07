@@ -1,0 +1,80 @@
+/* CSS declarations go here */
+body {
+  padding-top: 50px;
+}
+
+img {
+  width: 100%;
+}
+
+.img-small {
+  width: 50%;
+  margin-bottom: 40px;
+}
+
+.post-form {
+  padding-top: 20px;
+}
+
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.postPhoto {
+  width: 30%;
+}
+
+.panel {
+  margin-right: 5px;
+}
+
+.chat {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chat li {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted #000;
+}
+
+.chat li.right .chat-body{
+  margin-right: 60px;
+}
+
+.chat li.left .chat-body{
+  margin-left: 60px;
+}
+
+.panel-body {
+  overflow-y: scroll;
+  height: 350px;
+}
+
+.img-circle {
+  width: 45px;
+  height: 45px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.small-img {
+  width: 25px;
+  height: 25px;
+}

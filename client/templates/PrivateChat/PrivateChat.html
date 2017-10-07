@@ -1,0 +1,83 @@
+<template name="PrivateChat">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-primary">
+        <i class="glyphicon glyphicon-comment"></i> Chat
+      </div>
+      <div class="panel-body">
+        <ul class="chat">
+          {{#if isActive}}
+          <li class="left clearfix">
+            <div class="chat-body clearfix">
+              <p>Please select chat mate.</p>
+            </div>
+          </li>
+          {{else}}
+            {{#each DisplayMessage}}
+              <li class="right clearfix">
+                <span class="chat-img pull-right">
+                  <img class="img-circle" src="{{getProfilePhoto senderId}}" alt="">
+                </span>
+                <div class="chat-body clearfix">
+                  <div class="header">
+                    <small class="text-muted"><i class="glyphicon glyphicon-time"></i> {{formatDate createdAt}}</small>
+                    <strong class="pull-right primary-font">{{getFullName senderId}}</strong>
+                  </div>
+                  <p> {{ message }} </p>
+                </div>
+              </li>
+            {{/each}}
+          {{/if}}
+        </ul>
+      </div>
+      <div class="panel-footer">
+        <form class="sendMessage" action="index.html" method="post">
+        <div class="input-group">
+          {{#if isActive}}
+          <input disabled name="messageInput" type="text" class="form-control input-sm" placeholder="type your message here">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-success btn-sm"> Send</button>
+          </span>
+          {{else}}
+          <input name="messageInput" type="text" class="form-control input-sm" placeholder="type your message here">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-success btn-sm"> Send</button>
+          </span>
+          {{/if}}
+        </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <table class="table table-hover">
+        <thead>
+          <th>Users</th>
+        </thead>
+        <tbody>
+          {{#each listUsers}}
+          <tr class="user-row">
+            <td><img src="{{getProfilePhoto _id}}" class="small-img img-circle" alt="">{{ profile.firstname}} {{profile.lastname}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>
+
+<template name="senderView">
+  <li class="left clearfix">
+    <span class="chat-img pull-left">
+      <img class="img-circle" src="img/default.jpg" alt="">
+    </span>
+    <div class="chat-body clearfix">
+        <div class="header">
+          <strong class="primary-font">Jan Viktor</strong>
+          <small class="pull-right text-muted"><i class="glyphicon glyphicon-time"></i> Oct 6, 2017 9:34PM</small>
+        </div>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+    </div>
+  </li>
+</template>
